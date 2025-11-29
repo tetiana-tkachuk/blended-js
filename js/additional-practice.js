@@ -342,3 +342,183 @@ registerGuest2('Kendy', function notify(name) {
   console.log(`Dear ${name}, your room will be ready in 30 minutes`);
 });
 // #endregion callback
+
+// #region forEach()
+const array = [];
+array.forEach(function callback(element, index, array) {});
+
+const numbers = [5, 10, 15, 20, 25];
+
+// comparison of for and forEach()
+for (let i = 0; i < numbers.length; i += 1) {
+  console.log(`Index ${i}, value ${numbers[i]}`);
+}
+
+numbers.forEach(function (number, index) {
+  console.log(`Index ${index}, value ${number}`);
+});
+
+// task
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+
+  orderedItems.forEach(item => {
+    totalPrice += item;
+  });
+
+  return totalPrice;
+}
+
+console.log(calculateTotalPrice(numbers));
+
+// #endregion forEach
+
+// #region map() and flatMap()
+// map()
+const planets = ['Earth', 'Mars', 'Venus', 'Jupiter'];
+
+const planetsInUpperCase = planets.map(planet => planet.toUpperCase());
+console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+
+const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
+console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
+
+console.log(planets); // ["Earth", "Mars", "Venus", "Jupiter"]
+
+const students1 = [
+  { name: 'Mango', score: 83 },
+  { name: 'Poly', score: 59 },
+  { name: 'Ajax', score: 37 },
+  { name: 'Kiwi', score: 94 },
+  { name: 'Houston', score: 64 },
+];
+
+const names = students1.map(student => student.name);
+console.log(names); // ["Mango", "Poly", "Ajax", "Kiwi", "Houston"]
+
+const students2 = [
+  { name: 'Mango', courses: ['mathematics', 'physics'] },
+  { name: 'Poly', courses: ['science', 'mathematics'] },
+  { name: 'Kiwi', courses: ['physics', 'biology'] },
+];
+
+const mappedCourses = students2.map(student => student.courses);
+console.log(mappedCourses); // [["mathematics", "physics"], ["science", "mathematics"], ["physics", "biology"]]
+
+// flatMap()
+const flattenedCourses = students2.flatMap(student => student.courses);
+console.log(flattenedCourses); // ["mathematics", "physics", "science", "mathematics", "physics", "biology"];
+
+// #endregion map and flatMap
+
+// #region filter() and find()
+// filter()
+const values10 = [51, -3, 27, 21, -68, 42, -37];
+
+const positiveValues = values10.filter(value => value >= 0);
+console.log(positiveValues); // [51, 27, 21, 42]
+
+const negativeValues = values10.filter(value => value < 0);
+console.log(negativeValues); // [-3, -68, -37]
+
+const bigValues = values10.filter(value => value > 1000);
+console.log(bigValues); // []
+
+console.log(values10); // [51, -3, 27, 21, -68, 42, -37]
+
+const LOW_SCORE = 50;
+const HIGH_SCORE = 80;
+const students = [
+  { name: 'Mango', score: 83 },
+  { name: 'Poly', score: 59 },
+  { name: 'Ajax', score: 37 },
+  { name: 'Kiwi', score: 94 },
+  { name: 'Houston', score: 64 },
+];
+
+const best = students.filter(student => student.score >= HIGH_SCORE);
+console.log(best); // [{ name: 'Mango', score: 83 }, { name: "Kiwi", score: 94 }]
+
+const worst = students.filter(student => student.score < LOW_SCORE);
+console.log(worst); // [{ name: 'Ajax', score: 37 }]
+
+const average = students.filter(
+  student => student.score >= LOW_SCORE && student.score < HIGH_SCORE
+);
+console.log(average); // [{ name: 'Poly', score: 59 }, { name: 'Houston', score: 64 }]
+
+// find()
+const colorPickerOptions = [
+  { label: 'red', color: '#F44336' },
+  { label: 'green', color: '#4CAF50' },
+  { label: 'blue', color: '#2196F3' },
+  { label: 'pink', color: '#E91E63' },
+  { label: 'indigo', color: '#3F51B5' },
+];
+
+colorPickerOptions.find(option => option.label === 'blue'); // { label: "blue", color: "#2196F3" }
+colorPickerOptions.find(option => option.label === 'pink'); // { label: "pink", color: "#E91E63" }
+colorPickerOptions.find(option => option.label === 'white'); // undefined
+
+// #endregion filter and find
+
+// #region some() and every()
+// every()
+[1, 2, 3, 4, 5].every(value => value >= 0); // true
+
+[1, 2, 3, -10, 4, 5].every(value => value >= 0); // false
+
+// some()
+[1, 2, 3, 4, 5].some(value => value >= 0); // true
+
+[-7, -20, 3, -10, -14].some(value => value >= 0); // true
+
+[1, 2, 3, 4, 5].some(value => value < 0); // false
+
+[1, 2, 3, -10, 4, 5].some(value => value < 0); // true
+
+// #endregion some and every
+
+// #region reduce()
+const initialValue = 0;
+const array20 = [];
+array20.reduce((previousValue, element, index, array) => {}, initialValue);
+
+const students3 = [
+  { name: 'Mango', score: 83 },
+  { name: 'Poly', score: 59 },
+  { name: 'Ajax', score: 37 },
+  { name: 'Kiwi', score: 94 },
+  { name: 'Houston', score: 64 },
+];
+
+const totalScore = students3.reduce((total, student) => {
+  return total + student.score;
+}, 0);
+
+const averageScore = totalScore / students3.length;
+
+// #endregion reduce
+
+// #region toSorted()
+
+const scores4 = [61, 19, 74, 35, 92, 56];
+const ascendingScores = scores4.toSorted();
+
+console.log(scores4); // [61, 19, 74, 35, 92, 56]
+console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
+
+// custom order for numbers
+const descendingScores = scores4.toSorted((a, b) => b - a);
+console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
+
+const students30 = ['Jacob', 'Artemis', 'Solomon', 'Adrian', 'Kai', 'Ganymede'];
+
+// custom order for string
+const inAlphabetOrder = students30.toSorted((a, b) => a.localeCompare(b));
+console.log(inAlphabetOrder); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
+
+const inReversedOrder = students30.toSorted((a, b) => b.localeCompare(a));
+console.log(inReversedOrder); // [ "Solomon", "Kai", "Jacob", "Ganymede", "Artemis", "Adrian" ]
+
+// #endregion toSorted
