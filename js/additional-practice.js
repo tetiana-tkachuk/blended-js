@@ -522,3 +522,48 @@ const inReversedOrder = students30.toSorted((a, b) => b.localeCompare(a));
 console.log(inReversedOrder); // [ "Solomon", "Kai", "Jacob", "Ganymede", "Artemis", "Adrian" ]
 
 // #endregion toSorted
+
+// #region foo.bind(objectName, arg, arg, ...)
+
+const customer3 = {
+  firstName: 'Jacob',
+  lastName: 'Mercer',
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+
+function makeMessage(callback) {
+  const username = callback();
+  console.log(`Processing an application from ${username}`);
+}
+
+makeMessage(customer3.getFullName.bind(customer3));
+('Processing an application from Jacob Mercer');
+
+const library = {
+  books: 1923,
+  logBookCount() {
+    console.log(this.books);
+  },
+};
+
+const showBooks = library.logBookCount.bind({ books: 724 });
+
+showBooks(); // 724
+
+const library2 = {
+  books: 1923,
+  logBookCount() {
+    console.log(this.books);
+  },
+};
+
+const library3 = {
+  books: 2438,
+};
+
+const showBooks2 = library2.logBookCount.bind(library3);
+
+showBooks2();
+// #endregion bind
