@@ -79,7 +79,7 @@ console.log(sortedNumbers(numbersArray));
 
 const stringArray = ['banana', 'orange', 'apple', 'pear'];
 
-const sortedArray = arr => arr.toSorted((a, b) => a.age - b.age);
+const sortedArray = arr => arr.toSorted();
 
 console.log(sortedArray(stringArray));
 
