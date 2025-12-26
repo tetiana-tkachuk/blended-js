@@ -10,9 +10,35 @@
     <div class="container">
       <a class="link" href="./index.html">Go to home</a>
       <h1 class="title">JS</h1>
-      <button class="color-swicher-btn">Swich color</button>
-      <div class="first-circle">&nbsp;</div>
+      <button class="btn color-swicher-btn">Swich color</button>
+      <div class="circle first-circle">&nbsp;</div>
+      <button class="btn move-btn">Move circle</button>
+      <div class="circle second-circle">&nbsp;</div>
       <button class="close-btn" type="button">Close window</button>
+      <div class="calculator">
+        <div class="calc-inputs">
+          <input
+            class="calc-input first-input"
+            type="text"
+            name="firstInput"
+            placeholder="Enter number"
+          />
+          <input
+            class="calc-input second-input"
+            type="text"
+            name="secondInput"
+            placeholder="Enter number"
+          />
+        </div>
+        <div class="calcBtns">
+          <button class="calc-btn plus-btn" type="button">+</button>
+          <button class="calc-btn minus-btn" type="button">-</button>
+          <button class="calc-btn count-btn" type="button">Count</button>
+        </div>
+        <p class="result-title">
+          Result equals: <span class="result-field">&nbsp;</span>
+        </p>
+      </div>
     </div>
     <script type="module" src="./js/different-tasks.js"></script>
   </body>
