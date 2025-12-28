@@ -9,7 +9,43 @@
   <body>
     <div class="container">
       <a class="link link-home" href="./index.html">Go to home</a>
-      <h1>Page 2</h1>
+      <h1 class="title">Page 2</h1>
+      <h2>Register form</h2>
+      <form class="form" autocomplete="off">
+        <input
+          class="form-input"
+          type="text"
+          name="login"
+          placeholder="Login"
+        />
+        <input
+          class="form-input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <h2>Checkbox</h2>
+      <div>
+        <p>Selected option text: <span class="text-output">none</span></p>
+        <p>Selected option value: <span class="value-output">none</span></p>
+      </div>
+      <p>
+        <select class="pizza-select" name="menu">
+          <option value="four_meats">Four Meats🥩</option>
+          <option value="royal_cheese">Royal Cheese 🧀</option>
+          <option value="vegetarian">Vegetarian 🥬</option>
+          <option value="smoked_salmon">Smoked Salmon 🍣</option>
+        </select>
+      </p>
+      <h2>Focus and Blur</h2>
+      <button type="button" data-action="set">Set focus to input</button>
+      <button type="button" data-action="remove">
+        Remove focus from input
+      </button>
+      <input type="text" class="text-input" />
     </div>
+    <script type="module" src="./js/new-page-2.js"></script>
   </body>
 </html>

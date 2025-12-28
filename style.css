@@ -234,3 +234,31 @@ table {
   border: 2px solid rgb(100, 37, 14);
   border-radius: var(--radius);
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px;
+}
+
+.form-input {
+  border-bottom: 1px solid gray;
+  padding: 8px 4px;
+}
+
+.focus-input {
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 4px 2px;
+}
+
+.text-input {
+  border: 1px solid rgb(211, 206, 206);
+  border-radius: 8px;
+  padding: 4px 0;
+  text-align: center;
+}
