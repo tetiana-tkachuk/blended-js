@@ -221,3 +221,43 @@ const listEl = document.querySelector('.hearts-list');
 const itemsMarkup = hearts.map(heart => `<li>${heart}</li>`).join('');
 
 listEl.insertAdjacentHTML('beforeend', itemsMarkup);
+
+///
+
+const searchOuery = 'cats';
+
+const searchBtn = document.createElement('button');
+searchBtn.classList.add('btn');
+searchBtn.textContent = 'search';
+
+listEl.insertAdjacentElement('afterend', searchBtn);
+
+searchBtn.addEventListener('click', e => {
+  handleSearchBtn(e, searchOuery);
+});
+
+function handleSearchBtn(e, prompt) {
+  console.log(`Request to server with: ${prompt}`);
+}
+
+///
+const fruitMovementContainer = document.querySelector('.fruit-movement');
+
+const moveFruitBtn = document.createElement('button');
+moveFruitBtn.classList.add('btn');
+moveFruitBtn.textContent = 'Move fruit';
+fruitMovementContainer.insertAdjacentElement('beforeend', moveFruitBtn);
+
+const fruitBox = document.createElement('div');
+fruitBox.textContent = '🍓';
+fruitBox.style.fontSize = '56px';
+fruitMovementContainer.insertAdjacentElement('beforeend', fruitBox);
+
+moveFruitBtn.addEventListener('click', handleFruitClick);
+
+let position = 0;
+const shift = 10;
+function handleFruitClick(e) {
+  position += shift;
+  fruitBox.style.transform = `translate(${position}px, ${position}px)`;
+}
