@@ -86,7 +86,7 @@ imgEl.style.marginBottom = '30px';
 
 btnEl.addEventListener('click', handleImg);
 
-function handleImg(e) {
+function handleImg() {
   imgTitleEl.textContent = `Photo ${imgEl.attributes.width.value}px has been taken from Wirecutter:`;
   if (
     imgEl.src ===
@@ -108,7 +108,7 @@ const passwordRefs = {
 
 passwordRefs.btnEl.addEventListener('click', handleVisibility);
 
-function handleVisibility(e) {
+function handleVisibility() {
   if (passwordRefs.inputEl.attributes.type.value === 'password') {
     passwordRefs.inputEl.setAttribute('type', 'text');
     passwordRefs.btnEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" width="20px">
@@ -154,3 +154,70 @@ function handleFriends(e) {
     friendsListEl.insertAdjacentHTML('beforeend', `<li><p>New friend</p></li>`);
   }
 }
+
+////
+
+const modalRefs = {
+  backdropEl: document.querySelector('.backdrop'),
+  closeBtnEl: document.querySelector('.close-modal-btn'),
+  openBtnEl: document.querySelector('.open-modal-btn'),
+};
+
+modalRefs.openBtnEl.style.backgroundColor = '#76b8f1ff';
+
+// modalRefs.openBtnEl.addEventListener('click', () => {
+//   modalRefs.backdropEl.classList.toggle('is-open');
+// });
+
+// modalRefs.closeBtnEl.addEventListener('click', () => {
+//   modalRefs.backdropEl.classList.toggle('is-open');
+// });
+
+const toggleModal = () => {
+  modalRefs.backdropEl.classList.toggle('is-open');
+};
+
+modalRefs.openBtnEl.addEventListener('click', toggleModal);
+modalRefs.closeBtnEl.addEventListener('click', toggleModal);
+
+/** classList methods
+ * - add
+ * - remove
+ * - toggle
+ * - replace
+ * - contains
+ */
+
+///
+
+const options = [
+  { label: 'red', color: '#ee416dff' },
+  { label: 'blue', color: '#3398f1ff' },
+  { label: 'yellow', color: '#ecf169ff' },
+  { label: 'green', color: '#57eb88ff' },
+];
+
+const colorPickerContainerEl = document.querySelector('.js-color-picker');
+
+const elements = options.map(option => {
+  const colorPickerBtnEl = document.createElement('button');
+  colorPickerBtnEl.textContent = option.label;
+  colorPickerBtnEl.style.backgroundColor = option.color;
+  colorPickerBtnEl.style.border = '1px solid grey';
+  colorPickerBtnEl.style.borderRadius = '30px';
+  colorPickerBtnEl.style.padding = '10px 20px';
+  colorPickerBtnEl.style.marginRight = '10px';
+  return colorPickerBtnEl;
+});
+
+colorPickerContainerEl.append(...elements);
+
+///
+
+const hearts = ['💙', '🧡', '❤️', '💖'];
+
+const listEl = document.querySelector('.hearts-list');
+
+const itemsMarkup = hearts.map(heart => `<li>${heart}</li>`).join('');
+
+listEl.insertAdjacentHTML('beforeend', itemsMarkup);
