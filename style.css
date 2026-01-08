@@ -327,3 +327,22 @@ table {
   border: 1px solid gray;
   border-radius: 4px;
 }
+
+.main-box {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  background-color: rgb(94, 94, 170);
+  border-radius: 4px;
+}
+
+.inner-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  background-color: rgb(168, 168, 78);
+  border-radius: 4px;
+}
