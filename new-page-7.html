@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event propagation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a class="link link-home" href="./index.html">Go to home</a>
+      <did class="event-box parent">
+        <p class="event-box-name">Parent</p>
+        <div class="event-box child">
+          <p class="event-box-name">Child</p>
+          <div class="event-box descendant">
+            <p class="event-box-name">Descendant</p>
+          </div>
+        </div>
+      </did>
+    </div>
+    <div class="colorpicker">
+      <p class="output">Selected color: -</p>
+      <div class="color-palette"></div>
+    </div>
+    <script type="module" src="./js/new-page-7.js"></script>
+  </body>
+</html>

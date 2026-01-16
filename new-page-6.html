@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a class="link link-home" href="./index.html">Go to home</a>
+      <form class="car-search">
+        <div class="row mb-3">
+          <div class="col car-group">
+            <input
+              type="text"
+              class="form-control"
+              name="query"
+              placeholder="Пошук"
+            />
+          </div>
+          <div class="col car-group">
+            <select class="form-select" name="options">
+              <option value="car">Марка</option>
+              <option value="type">Модель</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary">Пошук</button>
+      </form>
+
+      <ul class="js-list car-list"></ul>
+    </div>
+    <script type="module" src="./js/new-page-6.js"></script>
+  </body>
+</html>
