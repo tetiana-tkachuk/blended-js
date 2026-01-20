@@ -168,6 +168,15 @@ table {
   border-radius: var(--radius);
 }
 
+.lesson-link {
+  color: rgb(197, 9, 197);
+  border-color: rgb(197, 9, 197);
+}
+
+.link:hover {
+  box-shadow: -3px 3px 2px 1px rgba(92, 92, 196, 0.2);
+}
+
 .link-home {
   align-self: flex-start;
 }
