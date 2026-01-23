@@ -78,3 +78,27 @@ listEl.insertAdjacentHTML('beforeend', newItem);
 // listEl.innerHTML = ''; // clean list
 
 //---- TASK-2 ----//
+
+const numberContainer = document.querySelector('.number-container');
+
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+
+const blockNumberElements = [];
+
+for (let i = 0; i <= 100; i++) {
+  const blockNumber = randomNumber();
+
+  const blockNumberEl = document.createElement('div');
+  blockNumberEl.classList.add('number');
+
+  if (blockNumber % 2 === 0) {
+    blockNumberEl.classList.add('even');
+    blockNumberEl.textContent = blockNumber;
+  } else {
+    blockNumberEl.classList.add('odd');
+    blockNumberEl.textContent = blockNumber;
+  }
+
+  blockNumberElements.push(blockNumberEl);
+}
+numberContainer.append(...blockNumberElements);
