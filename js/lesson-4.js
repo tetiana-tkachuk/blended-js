@@ -102,3 +102,83 @@ for (let i = 0; i <= 100; i++) {
   blockNumberElements.push(blockNumberEl);
 }
 numberContainer.append(...blockNumberElements);
+
+//-----TASK-3-----//
+
+const formEl = document.querySelector('.js-contact-form');
+const inputEl = document.querySelector('.js-username-input');
+const checkboxLabelSpanEl = document.querySelector('.js-username-output');
+
+// inputEl.addEventListener('input', handleInputClass);
+
+// function handleInputClass(e) {
+//   const input = e.target;
+
+//   if (input.value.length <= 6) {
+//     inputEl.classList.remove('success');
+//     inputEl.classList.add('error');
+//   } else {
+//     inputEl.classList.remove('error');
+//     inputEl.classList.add('success');
+//     checkboxLabelSpanEl.textContent = input.value;
+//   }
+// }
+
+// focus for input 💩
+// inputEl.addEventListener('focus', e => {
+//   const input = e.target;
+//   if (input.value.trim() === '') {
+//     inputEl.style.outline = '3px solid red';
+//   } else {
+//     inputEl.style.outline = '3px solid green';
+//   }
+// });
+
+// blur for input Ok in cases with several inputs
+// inputEl.addEventListener('blur', e => {
+//   const input = e.target;
+//   if (input.value.trim() === '') {
+//     inputEl.style.outline = '3px solid red';
+//   } else {
+//     inputEl.style.outline = '3px solid green';
+//   }
+// });
+
+formEl.addEventListener('submit', handleUserName);
+
+inputEl.addEventListener('input', handleInputClass);
+
+function handleInputClass(e) {
+  const inputValue = e.target.value.trim();
+
+  if (!inputValue.length) {
+    inputEl.classList.remove('success');
+    inputEl.classList.add('error');
+    checkboxLabelSpanEl.textContent = 'Anonymous';
+  } else {
+    inputEl.classList.remove('error');
+    inputEl.classList.add('success');
+    checkboxLabelSpanEl.textContent = inputValue;
+  }
+}
+
+function handleUserName(e) {
+  e.preventDefault();
+  const inputValue = e.target.userName.value.trim();
+  const checkboxValue = e.target.accept.checked;
+
+  if (!inputValue || !checkboxValue) {
+    alert('Please fill in all fields!');
+    return;
+  }
+
+  const userData = {
+    userName: inputValue,
+  };
+  console.log(userData);
+
+  formEl.reset();
+
+  inputEl.classList.remove('success');
+  checkboxLabelSpanEl.textContent = 'Anonymous';
+}
