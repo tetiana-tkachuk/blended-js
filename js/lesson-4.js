@@ -103,7 +103,7 @@ for (let i = 0; i <= 100; i++) {
 }
 numberContainer.append(...blockNumberElements);
 
-//-----TASK-3-----//
+//----- TASK-3 -----//
 
 const formEl = document.querySelector('.js-contact-form');
 const inputEl = document.querySelector('.js-username-input');
@@ -182,3 +182,56 @@ function handleUserName(e) {
   inputEl.classList.remove('success');
   checkboxLabelSpanEl.textContent = 'Anonymous';
 }
+
+//----- TASK-4 -----//
+
+const boxEl = document.querySelector('.box');
+const decreaseBtnEl = document.querySelector('.js-decrease');
+const increaseBtnEl = document.querySelector('.js-increase');
+
+let width = 50;
+let height = 50;
+
+// first way
+
+const handleBoxDecrease = num => {
+  if (width < 21) {
+    alert('Box size is too small for descreasing');
+  }
+  width -= num;
+  height -= num;
+  boxEl.style.width = `${width}px`;
+  boxEl.style.height = `${height}px`;
+};
+const handleBoxIncrease = num => {
+  width += num;
+  height += num;
+  boxEl.style.width = `${width}px`;
+  boxEl.style.height = `${height}px`;
+};
+
+decreaseBtnEl.addEventListener('click', () => {
+  handleBoxDecrease(20);
+});
+increaseBtnEl.addEventListener('click', () => {
+  handleBoxIncrease(20);
+});
+
+// second way
+
+// decreaseBtnEl.addEventListener('click', () => {
+//   handleBoxSize(-20);
+// });
+// increaseBtnEl.addEventListener('click', () => {
+//   handleBoxSize(20);
+// });
+
+// const handleBoxSize = num => {
+//   if (width < 21) {
+//     alert('Box size is too small for descreasing');
+//   }
+//   width += num;
+//   height += num;
+//   boxEl.style.width = `${width}px`;
+//   boxEl.style.height = `${height}px`;
+// };
